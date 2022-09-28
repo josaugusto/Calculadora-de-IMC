@@ -33,7 +33,6 @@ def classificação(imc):
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Obesidade grau II".replace(".", ","))
     else:
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Obesidade grau III".replace(".", ","))
-    
 
 
 def main():
