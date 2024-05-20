@@ -1,12 +1,14 @@
 import PySimpleGUI as sg
 
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
 
 
-def checando_numero(numero):
-   pass
-
-
-def imc(imc):
+def check_imc(imc):
     if imc < 18.5:
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Baixo peso".replace(".", ","))
     elif imc >= 18.6 and imc <= 24.9:
@@ -44,10 +46,11 @@ def main():
         elif evento == "Calcular":
             if valores["altura"] == '' or valores["peso"] == '':
                 sg.popup("Erro, preencha os campos de altura e peso!", title="Erro")
-            elif not(checando_numero(valores["altura"])):
+            elif not(isfloat(str(valores["altura"]).replace(",", "."))):
                 sg.popup("Erro, altura inválida!")
-            elif not(checando_numero(valores["peso"])):
+            elif not(isfloat(str(valores["peso"]).replace(",", "."))):
                 sg.popup("Erro, peso inválido!")
             else:
-                classificação(float(valores["peso"].replace(',', '.')) / float(valores["altura"].replace(',', '.'))**2)
+                check_imc(float(valores["peso"].replace(',', '.')) / float(valores["altura"].replace(',', '.'))**2)
 main()
+
