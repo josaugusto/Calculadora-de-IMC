@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 
 
-# Função para detectar se um número é decimal com , ao invés de .
+
 def checando_numero(numero):
    pass
 
