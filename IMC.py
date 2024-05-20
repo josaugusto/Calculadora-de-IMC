@@ -2,25 +2,11 @@ import PySimpleGUI as sg
 
 
 # Função para detectar se um número é decimal com , ao invés de .
-def énumerodecimal(numero):
-    if numero.isnumeric():
-        return True
-    elif numero.count(',') > 1:
-        return False
-    elif numero[0].isnumeric() and len(numero) == 1:
-        return True
-    elif not(numero[0].isnumeric()):
-        return False
-    elif len(numero) > 1:
-        for i in range(1, len(numero)):
-            if numero[i] == ',':
-                if numero[i+1:].isnumeric():
-                    return True
-                else:
-                    return False
+def checando_numero(numero):
+   pass
 
 
-def classificação(imc):
+def imc(imc):
     if imc < 18.5:
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Baixo peso".replace(".", ","))
     elif imc >= 18.6 and imc <= 24.9:
@@ -58,9 +44,9 @@ def main():
         elif evento == "Calcular":
             if valores["altura"] == '' or valores["peso"] == '':
                 sg.popup("Erro, preencha os campos de altura e peso!", title="Erro")
-            elif not(énumerodecimal(valores["altura"])):
+            elif not(checando_numero(valores["altura"])):
                 sg.popup("Erro, altura inválida!")
-            elif not(énumerodecimal(valores["peso"])):
+            elif not(checando_numero(valores["peso"])):
                 sg.popup("Erro, peso inválido!")
             else:
                 classificação(float(valores["peso"].replace(',', '.')) / float(valores["altura"].replace(',', '.'))**2)
