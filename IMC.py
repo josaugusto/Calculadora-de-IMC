@@ -7,7 +7,6 @@ def isfloat(num):
     except ValueError:
         return False
 
-
 def check_imc(imc):
     if imc < 18.5:
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Baixo peso".replace(".", ","))
@@ -21,7 +20,6 @@ def check_imc(imc):
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Obesidade grau II".replace(".", ","))
     else:
         print(f"Seu índice de massa corporal é igual a: {round(imc, 2)}; Classificado como: Obesidade grau III".replace(".", ","))
-
 
 def main():
 
@@ -53,4 +51,3 @@ def main():
             else:
                 check_imc(float(valores["peso"].replace(',', '.')) / float(valores["altura"].replace(',', '.'))**2)
 main()
-
